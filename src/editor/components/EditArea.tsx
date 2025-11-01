@@ -22,6 +22,7 @@ export function EditArea() {
                     key: component.id,
                     id: component.id,
                     name: component.name,
+                    styles: component.styles,
                     ...config.defaultProps,
                     ...component.props,
                 },
@@ -64,7 +65,7 @@ export function EditArea() {
         setHoverComponentId(undefined);
     }} onClick={handleClick}>
         {renderComponents(components)}
-        {hoverComponentId && (
+        {hoverComponentId && hoverComponentId !== curComponentId && (
             <HoverMask
                 portalWrapperClassName='portal-wrapper'
                 containerClassName='edit-area'
